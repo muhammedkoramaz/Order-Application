@@ -1,0 +1,4 @@
+Apigateway		-> http://localhost:5000
+
+CostumerApi		-> http://localhost:5001
+OrderApi		-> http://localhost:5002

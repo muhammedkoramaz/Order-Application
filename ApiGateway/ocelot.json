@@ -1,0 +1,34 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/costumer",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7001
+        }
+      ],
+      "UpstreamPathTemplate": "/costumer-service/costumer",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/order",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7002
+        }
+      ],
+      "UpstreamPathTemplate": "/order-service/order",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+    
+
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl":  "http://localhost:7000"
+
+  }
+}

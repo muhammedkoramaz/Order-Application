@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Costumer.Api.Infastructure\Costumer.Api.Infastructure.csproj" />
+    <ProjectReference Include="..\..\Costumer.Api.Models\Costumer.Api.Models.csproj" />
+    <ProjectReference Include="..\..\Costumer.Api.Services\Costumer.Api.Services.csproj" />
+  </ItemGroup>
+
+</Project>
