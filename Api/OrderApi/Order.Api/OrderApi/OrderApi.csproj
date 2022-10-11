@@ -8,4 +8,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Order.Api.Infrastructure\Order.Api.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Order.Api.Models\Order.Api.Models.csproj" />
+    <ProjectReference Include="..\..\Order.Api.Services\Order.Api.Services.csproj" />
+  </ItemGroup>
+
 </Project>

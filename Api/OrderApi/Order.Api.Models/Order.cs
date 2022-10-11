@@ -1,12 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Order.Api.Models
 {
     public class Order
     {
+        //[BsonId]
+        //[BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public int Id { get; set; }
+        public string CustomerId { get; set; }
+        public int Quantity { get; set; }
+        public decimal Price { get; set; }
+        public string Status { get; set; }
+        public Address Address { get; set; }
+        public Product Product { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

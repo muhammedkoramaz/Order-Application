@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Order.Api.Models\Order.Api.Models.csproj" />
+  </ItemGroup>
+
 </Project>

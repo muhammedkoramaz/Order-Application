@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\CostumerApi\Costumer.Api.Infastructure\Costumer.Api.Infrastructure.csproj" />
+    <ProjectReference Include="..\Order.Api.Infrastructure\Order.Api.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

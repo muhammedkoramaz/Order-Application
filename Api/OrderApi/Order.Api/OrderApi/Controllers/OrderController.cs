@@ -1,12 +1,23 @@
-﻿ using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Order.Api.Infrastructure;
+using Order.Api.Models;
 
 namespace OrderApi.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class OrderController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IOrderService orderService;
+        public OrderController(IOrderService OrderService)
         {
-            return View();
+            orderService = OrderService;
+        }
+        [HttpGet("{id}")]   
+        public Order.Api.Models.Order GetOrderById(int id)  
+        {
+           return orderService.GetOrderById(id);
         }
     }
 }
