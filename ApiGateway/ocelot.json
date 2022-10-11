@@ -1,7 +1,7 @@
 {
-  "ReRoutes": [
+  "Routes": [
     {
-      "DownstreamPathTemplate": "/api/costumer",
+      "DownstreamPathTemplate": "/api/costumer/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -9,11 +9,11 @@
           "Port": 7001
         }
       ],
-      "UpstreamPathTemplate": "/costumer-service/costumer",
+      "UpstreamPathTemplate": "/costumer-service/{id}",
       "UpstreamHttpMethod": [ "GET" ]
     },
     {
-      "DownstreamPathTemplate": "/api/order",
+      "DownstreamPathTemplate": "/api/order/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -21,7 +21,7 @@
           "Port": 7002
         }
       ],
-      "UpstreamPathTemplate": "/order-service/order",
+      "UpstreamPathTemplate": "/order-service/{id}",
       "UpstreamHttpMethod": [ "GET" ]
     }
     
