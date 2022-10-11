@@ -10,12 +10,12 @@ namespace Costumer.Api.Services
 {
     public class CostumerService : ICostumerService
     {
-        public CostumerDTO GetCostumerById(int id)
+        public Models.Costumer GetCostumerById(int id)
         {
             //BURADA VERİTABANINDAN ALINACAK VERİ VE SERVİS O VERİYİ DÖNDERECEK.
             Address address = new Address() { AddressLine = "asd", City = "Kayseri", CityCode = 38, Country = "Turkey" };   //geçici çözüm
             
-            return new CostumerDTO()
+            return new Models.Costumer()
             {
                 Id = id,
                 Email = "muhammed@gmail.com",

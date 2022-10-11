@@ -2,7 +2,7 @@
 
 namespace Costumer.Api.Models
 {
-    public class CostumerDTO
+    public class Costumer
     {
         public int Id { get; set; }
         public string Name { get; set; }

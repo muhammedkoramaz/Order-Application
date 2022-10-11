@@ -17,7 +17,7 @@ namespace CostumerApi.Controllers
             costumerService = CostumerService;
         }
         [HttpGet("{Id}")]
-        public CostumerDTO Get(int Id)
+        public Costumer.Api.Models.Costumer Get(int Id)
         {
             return costumerService.GetCostumerById(Id);
         }

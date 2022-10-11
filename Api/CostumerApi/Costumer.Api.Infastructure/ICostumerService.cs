@@ -9,6 +9,6 @@ namespace Costumer.Api.Infastructure
 {
     public interface ICostumerService
     {
-        public CostumerDTO GetCostumerById(int id);
+        public Models.Costumer GetCostumerById(int id);
     }
 }

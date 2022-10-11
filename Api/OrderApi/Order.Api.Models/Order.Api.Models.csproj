@@ -4,8 +4,4 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Costumer.Api.Infastructure\Costumer.Api.Infrastructure.csproj" />
-  </ItemGroup>
-
 </Project>
