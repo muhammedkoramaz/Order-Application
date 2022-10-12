@@ -3,6 +3,7 @@ using Costumer.Api.Models;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Net;
 
 namespace Costumer.Api.Services
 {
@@ -27,30 +28,8 @@ namespace Costumer.Api.Services
 
         public void DeleteCustomer(string id)
         {
-            throw new NotImplementedException();
+            _customers.DeleteOne(customer => customer.Id == id);
         }
-
-        //public Models.Costumer GetCostumerById(string id)
-        //{
-        //    //BURADA VERİTABANINDAN ALINACAK VERİ VE SERVİS O VERİYİ DÖNDERECEK.
-        //    Address address = new Address() { AddressLine = "asd", City = "Kayseri", CityCode = 38, Country = "Turkey" };   //geçici çözüm
-            
-        //    return new Models.Costumer()
-        //    {
-        //        Id = id,
-        //        Email = "muhammed@gmail.com",
-        //        Name = "Muhammed",
-        //        Address = address,
-                
-        //        //Address = {AddressLine = "asd", City = "Kayseri", CityCode = 38, Country = "Turkey"}
-
-        //    };
-        //}
-
-        //public Models.Costumer GetCostumerById(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         public Models.Costumer GetCustomer(string id)
         {
@@ -67,9 +46,12 @@ namespace Costumer.Api.Services
                 .ToList();
         }
 
-        public Models.Costumer UpdateCustomer(Models.Costumer customer)
+        public void UpdateCustomer(string id, Models.Costumer customer)
         {
-            throw new NotImplementedException();
+            GetCustomer(customer.Id);
+            customer.UpdatedAt = DateTime.Now;
+            _customers.ReplaceOne(c => c.Id == customer.Id, customer);
         }
+
     }
 }

@@ -14,6 +14,6 @@ namespace Costumer.Api.Infastructure
         Models.Costumer CreateCustomer(Models.Costumer customer);
         Models.Costumer GetCustomer(string id);
         void DeleteCustomer(string id);
-        Models.Costumer UpdateCustomer(Models.Costumer customer);
+        void UpdateCustomer(string id, Models.Costumer customer);
     }
 }
