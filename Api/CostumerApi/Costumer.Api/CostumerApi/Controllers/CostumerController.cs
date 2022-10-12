@@ -11,15 +11,22 @@ namespace CostumerApi.Controllers
     {
         private readonly ICostumerService costumerService;
 
-        //Scooped olarak verilen interface buraya parametre olarak gönderiliyor.
+        //DI olarak verilen interfaceler buraya parametre olarak gönderiliyor.
         public CostumerController(ICostumerService CostumerService)
         {
             costumerService = CostumerService;
         }
         [HttpGet("{Id}")]
-        public Costumer.Api.Models.Costumer Get(int Id)
+        public Costumer.Api.Models.Costumer GetCustomer(string Id)
         {
-            return costumerService.GetCostumerById(Id);
+            return costumerService.GetCustomer(Id);
+        }
+        [HttpPost]
+        public ActionResult<Costumer.Api.Models.Costumer> CreateCustomer(Costumer.Api.Models.Costumer costumer)
+        {
+            costumerService.CreateCustomer(costumer);
+
+            return CreatedAtRoute("GetCostumer", new { id = costumer.Id.ToString() }, costumer);
         }
     }
 }

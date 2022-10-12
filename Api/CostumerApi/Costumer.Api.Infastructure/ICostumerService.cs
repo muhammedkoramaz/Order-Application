@@ -9,6 +9,11 @@ namespace Costumer.Api.Infastructure
 {
     public interface ICostumerService
     {
-        public Models.Costumer GetCostumerById(int id);
+       // public Models.Costumer GetCostumerById(int id);
+        List<Models.Costumer> GetCustomers();
+        Models.Costumer CreateCustomer(Models.Costumer customer);
+        Models.Costumer GetCustomer(string id);
+        void DeleteCustomer(string id);
+        Models.Costumer UpdateCustomer(Models.Costumer customer);
     }
 }

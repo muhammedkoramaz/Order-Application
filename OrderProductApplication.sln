@@ -22,15 +22,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Costumer.Api.Models", "Api\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Costumer.Api.Services", "Api\CostumerApi\Costumer.Api.Services\Costumer.Api.Services.csproj", "{4C950C9E-D987-481E-B393-E0C6F9317FD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CostumerApi", "Api\CostumerApi\Costumer.Api\CostumerApi\CostumerApi.csproj", "{92EF142A-A1F8-4818-8A4F-440C267BCEBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CostumerApi", "Api\CostumerApi\Costumer.Api\CostumerApi\CostumerApi.csproj", "{92EF142A-A1F8-4818-8A4F-440C267BCEBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderApi", "Api\OrderApi\Order.Api\OrderApi\OrderApi.csproj", "{1B74C28C-5BEE-4D85-B7AC-2862FC6A5CFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderApi", "Api\OrderApi\Order.Api\OrderApi\OrderApi.csproj", "{1B74C28C-5BEE-4D85-B7AC-2862FC6A5CFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Api.Infrastructure", "Api\OrderApi\Order.Api.Infrastructure\Order.Api.Infrastructure.csproj", "{F540D6D4-AE70-404B-AA3E-96ABD0A96DD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Api.Infrastructure", "Api\OrderApi\Order.Api.Infrastructure\Order.Api.Infrastructure.csproj", "{F540D6D4-AE70-404B-AA3E-96ABD0A96DD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Api.Models", "Api\OrderApi\Order.Api.Models\Order.Api.Models.csproj", "{D1FF3838-F881-457D-AD04-8C553B9E5D93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Api.Models", "Api\OrderApi\Order.Api.Models\Order.Api.Models.csproj", "{D1FF3838-F881-457D-AD04-8C553B9E5D93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Api.Services", "Api\OrderApi\Order.Api.Services\Order.Api.Services.csproj", "{A34116CD-62B5-4D08-9C3E-5DD2E3F992E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Api.Services", "Api\OrderApi\Order.Api.Services\Order.Api.Services.csproj", "{A34116CD-62B5-4D08-9C3E-5DD2E3F992E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
