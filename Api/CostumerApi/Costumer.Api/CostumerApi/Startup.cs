@@ -1,6 +1,9 @@
 ﻿using Costumer.Api.Infastructure;
 using Costumer.Api.Models;
 using Costumer.Api.Services;
+using CostumerApi.Validations;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +25,7 @@ namespace CostumerApi
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        [System.Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CustomerDatabaseSettings>(
@@ -30,10 +34,14 @@ namespace CostumerApi
             services.AddSingleton<ICustomerDatabaseSettings>(sp =>
             sp.GetRequiredService<IOptions<CustomerDatabaseSettings>>().Value);
 
-            services.AddControllers();
-            //DEPENDENCIES INJECTION BURADA YAPILIYOR
+            services.AddControllers()
+                .AddFluentValidation(i => i.DisableDataAnnotationsValidation = true);
+                
+
             services.AddSingleton<ICostumerService, CostumerService>(); //ne zaman bu interface e ihtiya� duyarsam bu class� yarat.
 
+            //VALIDATOR DI
+            services.AddTransient<IValidator<Costumer.Api.Models.Costumer>, CreateCustomerValidator>();
 
             services.AddSwaggerGen(c =>
             {
