@@ -46,11 +46,11 @@ namespace Costumer.Api.Services
                 .ToList();
         }
 
-        public void UpdateCustomer(string id, Models.Costumer customer)
+        public void UpdateCustomer(string id, Models.Costumer customerIn)
         {
-            GetCustomer(customer.Id);
-            customer.UpdatedAt = DateTime.Now;
-            _customers.ReplaceOne(c => c.Id == customer.Id, customer);
+            GetCustomer(customerIn.Id);
+            customerIn.UpdatedAt = DateTime.Now;
+            _customers.ReplaceOne(customer => customer.Id == id, customerIn);
         }
 
     }

@@ -49,7 +49,7 @@ namespace CostumerApi.Controllers
             return NoContent();
         }
         [HttpPut("{id:length(24)}")]
-        public IActionResult UpdateCustomer(string id, Costumer.Api.Models.Costumer costumer)
+        public IActionResult UpdateCustomer(string id, Costumer.Api.Models.Costumer customerIn)
         {
             var customer = costumerService.GetCustomer(id);
 
@@ -58,7 +58,7 @@ namespace CostumerApi.Controllers
                 return NotFound();
             }
 
-            costumerService.UpdateCustomer(id, customer);
+            costumerService.UpdateCustomer(id, customerIn);
 
             return NoContent();
         }
