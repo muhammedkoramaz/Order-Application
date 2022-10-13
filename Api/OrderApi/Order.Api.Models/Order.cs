@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 namespace Order.Api.Models
 {
     public class Order
     {
-        //[BsonId]
-        //[BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public int Id { get; set; }
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public string Id { get; set; }
         public string CustomerId { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
