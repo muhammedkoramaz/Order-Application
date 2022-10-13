@@ -6,8 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Order.Api.Infrastructure;
+using Order.Api.Models;
 using Order.Api.Services;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,11 @@ namespace OrderApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.Configure<OrderDatabaseSettings>(
+                Configuration.GetSection(nameof(OrderDatabaseSettings)));
+
+            services.AddSingleton<IOrderDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<OrderDatabaseSettings>>().Value);
             services.AddControllers();
 
             services.AddScoped<IOrderService, OrderService>();

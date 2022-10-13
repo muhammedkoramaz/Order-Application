@@ -10,7 +10,19 @@
         }
       ],
       "UpstreamPathTemplate": "/costumer-service/{id}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET", "DELETE", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/costumer",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7001
+        }
+      ],
+      "UpstreamPathTemplate": "/costumer-service",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
     },
     {
       "DownstreamPathTemplate": "/api/order/{id}",
@@ -22,9 +34,20 @@
         }
       ],
       "UpstreamPathTemplate": "/order-service/{id}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET", "DELETE", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/order",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7002
+        }
+      ],
+      "UpstreamPathTemplate": "/order-service",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
     }
-    
 
   ],
   "GlobalConfiguration": {

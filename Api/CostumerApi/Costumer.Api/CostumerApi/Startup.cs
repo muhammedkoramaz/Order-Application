@@ -1,18 +1,13 @@
 ﻿using Costumer.Api.Infastructure;
+using Costumer.Api.Models;
 using Costumer.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CostumerApi
 {
@@ -29,10 +24,15 @@ namespace CostumerApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CustomerDatabaseSettings>(
+            Configuration.GetSection(nameof(CustomerDatabaseSettings)));
+
+            services.AddSingleton<ICustomerDatabaseSettings>(sp =>
+            sp.GetRequiredService<IOptions<CustomerDatabaseSettings>>().Value);
 
             services.AddControllers();
             //DEPENDENCIES INJECTION BURADA YAPILIYOR
-            services.AddScoped<ICostumerService, CostumerService>(); //ne zaman bu interface e ihtiya� duyarsam bu class� yarat.
+            services.AddSingleton<ICostumerService, CostumerService>(); //ne zaman bu interface e ihtiya� duyarsam bu class� yarat.
 
 
             services.AddSwaggerGen(c =>

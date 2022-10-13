@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Order.Api.Infrastructure
 {
     public interface IOrderService
     {
-        public Models.Order GetOrderById(int id);
+        List<Models.Order> GetOrders();
+        Models.Order GetOrder(string id);
+        void DeleteOrder(string id);
+        void UpdateOrder(string id, Models.Order order);
+        Models.Order CreateOrder(Models.Order order);
     }
 }
