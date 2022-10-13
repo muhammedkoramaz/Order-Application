@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +13,7 @@ using Microsoft.OpenApi.Models;
 using Order.Api.Infrastructure;
 using Order.Api.Models;
 using Order.Api.Services;
+using OrderApi.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +32,7 @@ namespace OrderApi
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -37,9 +41,11 @@ namespace OrderApi
 
             services.AddSingleton<IOrderDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<OrderDatabaseSettings>>().Value);
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(i => i.DisableDataAnnotationsValidation = true); ;
 
             services.AddScoped<IOrderService, OrderService>();
+            services.AddTransient<IValidator<Order.Api.Models.Order>, CreateOrderValidation>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderApi", Version = "v1" });
