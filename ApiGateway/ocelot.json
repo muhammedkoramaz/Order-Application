@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/costumer/{id}",
+      "DownstreamPathTemplate": "/api/customer/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -9,11 +9,11 @@
           "Port": 7001
         }
       ],
-      "UpstreamPathTemplate": "/costumer-service/{id}",
+      "UpstreamPathTemplate": "/customer-service/{id}",
       "UpstreamHttpMethod": [ "GET", "DELETE", "PUT" ]
     },
     {
-      "DownstreamPathTemplate": "/api/costumer",
+      "DownstreamPathTemplate": "/api/customer",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -21,7 +21,7 @@
           "Port": 7001
         }
       ],
-      "UpstreamPathTemplate": "/costumer-service",
+      "UpstreamPathTemplate": "/customer-service",
       "UpstreamHttpMethod": [ "GET", "POST" ]
     },
     {

@@ -6,7 +6,7 @@ using System;
 
 namespace Costumer.Api.Models
 {
-    public class Costumer
+    public class Customer
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

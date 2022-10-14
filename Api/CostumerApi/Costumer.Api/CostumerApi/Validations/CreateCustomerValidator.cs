@@ -2,7 +2,7 @@
 
 namespace CostumerApi.Validations
 {
-    public class CreateCustomerValidator: AbstractValidator<Costumer.Api.Models.Costumer>
+    public class CreateCustomerValidator: AbstractValidator<Costumer.Api.Models.Customer>
     {
         public CreateCustomerValidator()
         {

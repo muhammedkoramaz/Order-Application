@@ -7,27 +7,27 @@ namespace CostumerApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CostumerController : ControllerBase
+    public class CustomerController : ControllerBase
     {
-        private readonly ICostumerService costumerService;
+        private readonly ICustomerService costumerService;
 
         //DI olarak verilen interfaceler buraya parametre olarak gönderiliyor.
-        public CostumerController(ICostumerService CostumerService)
+        public CustomerController(ICustomerService CostumerService)
         {
             costumerService = CostumerService;
         }
         [HttpGet]
-        public ActionResult<List<Costumer.Api.Models.Costumer>> GetCustomers() =>
+        public ActionResult<List<Costumer.Api.Models.Customer>> GetCustomers() =>
             costumerService.GetCustomers();
 
         [HttpGet("{Id:length(24)}", Name ="GetCostumer")]
-        public Costumer.Api.Models.Costumer GetCustomer(string Id)
+        public Costumer.Api.Models.Customer GetCustomer(string Id)
         {
             return costumerService.GetCustomer(Id);
         }
 
         [HttpPost]
-        public ActionResult<Costumer.Api.Models.Costumer> CreateCustomer(Costumer.Api.Models.Costumer costumer)
+        public ActionResult<Costumer.Api.Models.Customer> CreateCustomer(Costumer.Api.Models.Customer costumer)
         {
             costumerService.CreateCustomer(costumer);
 
@@ -49,7 +49,7 @@ namespace CostumerApi.Controllers
             return NoContent();
         }
         [HttpPut("{id:length(24)}")]
-        public IActionResult UpdateCustomer(string id, Costumer.Api.Models.Costumer customerIn)
+        public IActionResult UpdateCustomer(string id, Costumer.Api.Models.Customer customerIn)
         {
             var customer = costumerService.GetCustomer(id);
 

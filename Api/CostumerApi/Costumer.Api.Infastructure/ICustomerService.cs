@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Costumer.Api.Infastructure
 {
-    public interface ICostumerService
+    public interface ICustomerService
     {
        // public Models.Costumer GetCostumerById(int id);
-        List<Models.Costumer> GetCustomers();
-        Models.Costumer CreateCustomer(Models.Costumer customer);
-        Models.Costumer GetCustomer(string id);
+        List<Models.Customer> GetCustomers();
+        Models.Customer CreateCustomer(Models.Customer customer);
+        Models.Customer GetCustomer(string id);
         void DeleteCustomer(string id);
-        void UpdateCustomer(string id, Models.Costumer customer);
+        void UpdateCustomer(string id, Models.Customer customer);
     }
 }

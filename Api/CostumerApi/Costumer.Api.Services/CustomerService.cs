@@ -7,19 +7,19 @@ using System.Net;
 
 namespace Costumer.Api.Services
 {
-    public class CostumerService : ICostumerService
+    public class CustomerService : ICustomerService
     {
-        private readonly IMongoCollection<Models.Costumer> _customers;
+        private readonly IMongoCollection<Models.Customer> _customers;
 
-        public CostumerService(ICustomerDatabaseSettings settings)
+        public CustomerService(ICustomerDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _customers = database.GetCollection<Models.Costumer>(settings.CustomersCollectionName);
+            _customers = database.GetCollection<Models.Customer>(settings.CustomersCollectionName);
         }
 
-        public Models.Costumer CreateCustomer(Models.Costumer customer)
+        public Models.Customer CreateCustomer(Models.Customer customer)
         {
             customer.CreatedAt = DateTime.Now;
             _customers.InsertOne(customer);
@@ -31,22 +31,22 @@ namespace Costumer.Api.Services
             _customers.DeleteOne(customer => customer.Id == id);
         }
 
-        public Models.Costumer GetCustomer(string id)
+        public Models.Customer GetCustomer(string id)
         {
             return _customers
-                .Find<Models.Costumer>(customer => customer.Id == id)
+                .Find<Models.Customer>(customer => customer.Id == id)
                 .FirstOrDefault();
 
         }
 
-        public List<Models.Costumer> GetCustomers()
+        public List<Models.Customer> GetCustomers()
         {
             return _customers
                 .Find(customer => true)
                 .ToList();
         }
 
-        public void UpdateCustomer(string id, Models.Costumer customerIn)
+        public void UpdateCustomer(string id, Models.Customer customerIn)
         {
             GetCustomer(customerIn.Id);
             customerIn.UpdatedAt = DateTime.Now;

@@ -38,14 +38,14 @@ namespace CostumerApi
                 .AddFluentValidation(i => i.DisableDataAnnotationsValidation = true);
                 
 
-            services.AddSingleton<ICostumerService, CostumerService>(); //ne zaman bu interface e ihtiya� duyarsam bu class� yarat.
+            services.AddSingleton<ICustomerService, CustomerService>(); //ne zaman bu interface e ihtiya� duyarsam bu class� yarat.
 
             //VALIDATOR DI
-            services.AddTransient<IValidator<Costumer.Api.Models.Costumer>, CreateCustomerValidator>();
+            services.AddTransient<IValidator<Costumer.Api.Models.Customer>, CreateCustomerValidator>();
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CostumerApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CustomerApi", Version = "v1" });
             });
 
             services.AddCors(options =>
