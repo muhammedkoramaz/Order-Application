@@ -1,4 +1,4 @@
-# OrderProductApplication
+# Order Application
 Basic microservice application.
  ## 3rd Party Libraries
 
